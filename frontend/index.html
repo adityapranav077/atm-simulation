@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ATM Simulation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="header">
+      <div class="logo">A</div>
+      <div><p class="eyebrow">LEARNING PROJECT</p><h1>ATM Simulation</h1></div>
+      <span class="pill">● Demo mode</span>
+    </header>
+
+    <section id="login-panel" class="panel login">
+      <p class="eyebrow">WELCOME BACK</p>
+      <h2>Access your account</h2>
+      <p class="muted">Enter the demo account details to use the ATM.</p>
+      <form id="login-form">
+        <label for="account-number">Account number</label>
+        <input id="account-number" value="1001" required autocomplete="username">
+        <label for="pin">4-digit PIN</label>
+        <input id="pin" type="password" value="1234" maxlength="4" required autocomplete="current-password">
+        <button class="primary" type="submit">Sign in →</button>
+      </form>
+      <p class="hint">Demo login: account <b>1001</b> · PIN <b>1234</b></p>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <div class="welcome">
+        <div><p class="eyebrow">YOUR ACCOUNT</p><h2>Welcome back</h2><p class="muted">Account <span id="account-ending">1001</span></p></div>
+        <button id="logout-button" class="quiet" type="button">Sign out</button>
+      </div>
+      <div class="balance">
+        <div><p>Available balance</p><strong id="balance">₹0.00</strong></div><span class="rupee">₹</span>
+      </div>
+      <p class="eyebrow section-label">QUICK ACTIONS</p>
+      <h3>What would you like to do?</h3>
+      <div class="actions">
+        <form id="deposit-form" class="panel action">
+          <div class="action-icon green">↓</div><h3>Deposit</h3><p class="muted">Add money to your demo account.</p>
+          <label for="deposit-amount">Amount (₹)</label><input id="deposit-amount" type="number" min="0.01" step="0.01" placeholder="e.g. 500" required>
+          <button class="primary" type="submit">Deposit money</button>
+        </form>
+        <form id="withdraw-form" class="panel action">
+          <div class="action-icon orange">↑</div><h3>Withdraw</h3><p class="muted">Withdraw money from your account.</p>
+          <label for="withdraw-amount">Amount (₹)</label><input id="withdraw-amount" type="number" min="0.01" step="0.01" placeholder="e.g. 200" required>
+          <button class="secondary" type="submit">Withdraw money</button>
+        </form>
+      </div>
+      <section class="panel history">
+        <div class="history-head"><div><p class="eyebrow">ACCOUNT ACTIVITY</p><h3>Recent transactions</h3></div><button id="refresh-button" class="quiet" type="button">Refresh</button></div>
+        <div id="transactions"><p class="muted">Your transactions will appear here.</p></div>
+      </section>
+    </section>
+    <div id="message" class="message hidden" role="status" aria-live="polite"></div>
+    <footer>ATM Simulation · HTML + Java Spring Boot</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
